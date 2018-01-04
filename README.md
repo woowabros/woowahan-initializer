@@ -39,7 +39,10 @@ import Woowahan from 'woowahan';
 export default Woowahan.View.create('myView', {
 
   initConfig: {
-    loadStore: ['config']
+    loadStore: ['config'],
+    after() {
+      console.log(this.getModel()); // { config }
+    }
   },
 
   viewDidMount() {

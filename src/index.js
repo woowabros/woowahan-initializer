@@ -12,6 +12,12 @@ function viewInitializer() {
           }
         });
       }
+
+      if ('after' in view[VIEW_PROPERTY_NAME]) {
+        if (typeof view[VIEW_PROPERTY_NAME].after === 'function') {
+          view[VIEW_PROPERTY_NAME].after.call(view);
+        }
+      }
     }
   }
 }
