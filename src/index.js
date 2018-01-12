@@ -6,8 +6,8 @@ function viewInitializer() {
       const store = view.getStates();
 
       if ('initModel' in view[VIEW_PROPERTY_NAME]) {
-        Object.keys(view[VIEW_PROPERTY_NAME].initModel).forEach((attr, idx, model) => {
-          view.setModel({ [attr]: model[attr] });
+        Object.keys(view[VIEW_PROPERTY_NAME].initModel).forEach(attr => {
+          view.setModel({ [attr]: view[VIEW_PROPERTY_NAME].initModel[attr] });
         });
       }
 

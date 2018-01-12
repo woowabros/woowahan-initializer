@@ -1,6 +1,6 @@
 {
   "name": "woowahan-initializer",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Component initializer middleware for woowahanjs",
   "main": "lib/initializer.js",
   "scripts": {
