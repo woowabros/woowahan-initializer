@@ -13,6 +13,12 @@ function viewInitializer() {
         });
       }
 
+      if (store && 'initModel' in view[VIEW_PROPERTY_NAME]) {
+        Object.keys(view[VIEW_PROPERTY_NAME].initModel).forEach((attr, idx, model) => {
+          view.setModel({ [attr]: model[attr] });
+        });
+      }
+
       if ('after' in view[VIEW_PROPERTY_NAME]) {
         if (typeof view[VIEW_PROPERTY_NAME].after === 'function') {
           view[VIEW_PROPERTY_NAME].after.call(view);
