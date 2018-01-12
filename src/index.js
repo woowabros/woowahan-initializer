@@ -5,17 +5,17 @@ function viewInitializer() {
     if (VIEW_PROPERTY_NAME in view) {
       const store = view.getStates();
 
+      if ('initModel' in view[VIEW_PROPERTY_NAME]) {
+        Object.keys(view[VIEW_PROPERTY_NAME].initModel).forEach((attr, idx, model) => {
+          view.setModel({ [attr]: model[attr] });
+        });
+      }
+
       if (store && 'loadStore' in view[VIEW_PROPERTY_NAME]) {
         view[VIEW_PROPERTY_NAME].loadStore.forEach(attr => {
           if (attr in store) {
             view.setModel({ [attr]: store[attr] });
           }
-        });
-      }
-
-      if (store && 'initModel' in view[VIEW_PROPERTY_NAME]) {
-        Object.keys(view[VIEW_PROPERTY_NAME].initModel).forEach((attr, idx, model) => {
-          view.setModel({ [attr]: model[attr] });
         });
       }
 
